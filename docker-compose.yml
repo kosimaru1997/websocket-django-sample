@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    build: ./container
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    platform: linux/x86_64
+    image: mysql:8.0
+    volumes:
+      - my-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: kosimaru1997
+      MYSQL_USER: kosimaru1997
+      MYSQL_PASSWORD: password
+    ports: 
+      - "3306:3306"
+
+volumes:
+  my-mysql-data:
