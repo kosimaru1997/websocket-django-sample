@@ -15,13 +15,13 @@
 5. 下記コマンドを実行
  - Docker上でプロジェクトを作成し、ローカルの./appディレクトリと同期する。
 ```sh
-docker-compose run web django-admin startproject myweb
+docker-compose run web django-admin startproject myweb .
 ```
 
 6. 下記コマンドを実行
 - Docker上でアプリケーションを作成し、ローカルの./appディレクトリと同期する。
 ```
-docker-compose run web python manage.py startapp myweb_app 
+docker-compose run web python manage.py startapp myweb_app
 ```
 
 7. setting.pyにデータベース接続設定を修正する
