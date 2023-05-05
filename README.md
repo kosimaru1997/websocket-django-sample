@@ -25,5 +25,22 @@ docker-compose run web python manage.py startapp myweb_app
 ```
 
 7. setting.pyにデータベース接続設定を修正する
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'kosimaru1997',
+        'USER': 'kosimaru1997',
+        'HOST': 'db',
+        'PORT': '3306',
+        'PASSWORD': 'password',
+    }
+}
+```
 
-8. docker-compose upをし、http://localhost:8000/ にアクセスできることを確認する
+8. 下記コマンドでmigrationを実行
+```
+docker-compose run web python manage.py migrate
+```
+
+9. docker-compose upをし、http://localhost:8000/ にアクセスできることを確認する
